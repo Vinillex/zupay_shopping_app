@@ -8,6 +8,8 @@ import '../providers/product.dart';
 import '../screens/product_detail_screen.dart';
 
 class ProductWidget extends StatelessWidget {
+  const ProductWidget({Key? key}) : super(key: key);
+
   // final String productId;
   // final String title;
   // final String category;
@@ -41,7 +43,7 @@ class ProductWidget extends StatelessWidget {
             flex: 2,
             fit: FlexFit.tight,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +52,7 @@ class ProductWidget extends StatelessWidget {
                     product.category,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -72,7 +74,7 @@ class ProductWidget extends StatelessWidget {
                           Scaffold.of(context).hideCurrentSnackBar();
                           cart.addCartItem(product.id, product.price ,product.title, product.image);
                           Scaffold.of(context).showSnackBar(SnackBar(
-                            backgroundColor: Color(0xFFFEFEFE).withOpacity(0.9),
+                            backgroundColor: const Color(0xFFFEFEFE).withOpacity(0.9),
                             content: Text('Added Item to Cart',style: TextStyle(color: Colors.grey[600]),),
                             action: SnackBarAction(
                               label: 'UNDO',
@@ -83,7 +85,7 @@ class ProductWidget extends StatelessWidget {
                             ),
                           ));
                         },
-                        icon: Icon(Icons.shopping_bag_outlined),
+                        icon: const Icon(Icons.shopping_bag_outlined),
                       ),
                     ],
                   ),

@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'bottom_nav_bar.dart';
 
 class IntroScreen extends StatefulWidget {
+  const IntroScreen({Key? key}) : super(key: key);
+
   @override
   State<IntroScreen> createState() => _IntroScreenState();
 }
@@ -17,22 +18,22 @@ class _IntroScreenState extends State<IntroScreen> {
     setState(() {
       _startAnimation = true;
     });
-    print('nav');
-    Timer(Duration(seconds: 5),()=> Navigator.of(context).pushReplacementNamed(BottomNavBar.routeName));
+    // print('nav');
+    Timer(const Duration(seconds: 5),()=> Navigator.of(context).pushReplacementNamed(BottomNavBar.routeName));
   }
 
   @override
   Widget build(BuildContext context) {
-    print('start');
+    // print('start');
     if(_startAnimation == false){
-      Timer(Duration(milliseconds: 500),_doIt);
+      Timer(const Duration(milliseconds: 500),_doIt);
     }
     return Scaffold(
       body: Center(
         child: AnimatedContainer(
           clipBehavior: Clip.hardEdge,
           curve: Curves.fastLinearToSlowEaseIn,
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
           height: _startAnimation ? 200 : 0,
           width: _startAnimation ? 200 : 0,
           decoration: BoxDecoration(

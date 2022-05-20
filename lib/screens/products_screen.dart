@@ -3,9 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../providers/products.dart';
 import '../widgets/product_grid.dart';
-import '../widgets/product_widget.dart';
 
 class ProductScreen extends StatefulWidget {
+  const ProductScreen({Key? key}) : super(key: key);
+
   @override
   State<ProductScreen> createState() => _ProductScreenState();
 }
@@ -60,11 +61,11 @@ class _ProductScreenState extends State<ProductScreen> {
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.menu),
+                      icon: const Icon(Icons.menu),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.search),
+                      icon: const Icon(Icons.search),
                     ),
                   ],
                 ),
@@ -81,15 +82,15 @@ class _ProductScreenState extends State<ProductScreen> {
         ),
         SliverToBoxAdapter(
           child: _isLoading
-              ? Container(
-            height: MediaQuery.of(context).size.height*0.8,
-                child: Center(
+              ? SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  child: const Center(
                     child: CircularProgressIndicator(
                       color: Colors.black,
                     ),
                   ),
-              )
-              : ProductGrid(),
+                )
+              : const ProductGrid(),
         ),
       ],
     );

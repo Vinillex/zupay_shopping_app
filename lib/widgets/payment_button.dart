@@ -7,6 +7,8 @@ import '../providers/cart.dart';
 import '../screens/order_confirmation_screen.dart';
 
 class PaymentButton extends StatefulWidget{
+  const PaymentButton({Key? key}) : super(key: key);
+
   @override
   State<PaymentButton> createState() => _PaymentButtonState();
 }
@@ -18,18 +20,18 @@ class _PaymentButtonState extends State<PaymentButton> {
     return TextButton(
       onPressed: () {
         Navigator.pushNamed(context, OrderConfirmationScreen.routeName);
-        Timer(Duration(seconds: 1),()=>cart.clearCart());
+        Timer(const Duration(seconds: 1),()=>cart.clearCart());
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xFF1C1C19),
+          color: const Color(0xFF1C1C19),
           borderRadius: BorderRadius.circular(6),
         ),
         width: double.infinity,
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 20,
         ),
-        child: Center(
+        child: const Center(
           child: Text(
             'Order Now',
             style: TextStyle(

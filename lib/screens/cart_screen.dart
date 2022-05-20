@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../providers/cart.dart';
 import '../widgets/cart_item_widget.dart';
-import '../widgets/payment_button.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -30,7 +29,7 @@ class CartScreen extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: (cart.totalAmount <= 0)
-              ? Container(
+              ? SizedBox(
                   height: MediaQuery.of(context).size.height * 0.88178 - 100,
                   child: Center(
                     child: Column(

@@ -18,7 +18,7 @@ class Products with ChangeNotifier{
   Future<void> fetchAndSetData() async{
     final url = Uri.parse('https://fakestoreapi.com/products');
     //try{
-      // final responsef = fetch('https://fakestoreapi.com/products')
+      // final response = fetch('https://fakestoreapi.com/products')
       //     .then(res=>res.json())
       //   .then(json=>console.log(json))
       final response = await http.get(url);

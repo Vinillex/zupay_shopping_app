@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'dart:math' as math;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OrderConfirmationScreen extends StatefulWidget {
   static const routeName = '/order_confirmation';
+
+  const OrderConfirmationScreen({Key? key}) : super(key: key);
 
   @override
   State<OrderConfirmationScreen> createState() =>
@@ -25,9 +25,9 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen>
 
       //_size = 200;
     });
-    Timer(Duration(seconds: 5), () => Navigator.of(context).pop());
+    Timer(const Duration(seconds: 5), () => Navigator.of(context).pop());
     Timer(
-        Duration(seconds: 1),
+        const Duration(seconds: 1),
         () => setState(() {
               _startAnimation = true;
             }));
@@ -38,18 +38,18 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen>
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      Timer(Duration(seconds: 5), _orderComplete);
+      Timer(const Duration(seconds: 5), _orderComplete);
     }
     return Scaffold(
       body: Center(
         child: _isLoading
-            ? CircularProgressIndicator(
+            ? const CircularProgressIndicator(
                 color: Colors.black,
               )
             : AnimatedContainer(
                 clipBehavior: Clip.hardEdge,
                 curve: Curves.fastLinearToSlowEaseIn,
-                duration: Duration(seconds: 5),
+                duration: const Duration(seconds: 5),
                 height: _startAnimation ? 200 : 0,
                 width: _startAnimation ? 200 : 0,
                 decoration: BoxDecoration(

@@ -92,11 +92,11 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: IntroScreen(),
+        home: const IntroScreen(),
         routes: {
-          BottomNavBar.routeName: (ctx) => BottomNavBar(),
-          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
-          OrderConfirmationScreen.routeName: (ctx) => OrderConfirmationScreen(),
+          BottomNavBar.routeName: (ctx) => const BottomNavBar(),
+          ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
+          OrderConfirmationScreen.routeName: (ctx) => const OrderConfirmationScreen(),
         },
       ),
     );

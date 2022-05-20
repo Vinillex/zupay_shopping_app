@@ -11,9 +11,9 @@ class ProductGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final productProvider = Provider.of<Products>(context);
     return GridView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       shrinkWrap: true,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       itemCount: productProvider.products.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

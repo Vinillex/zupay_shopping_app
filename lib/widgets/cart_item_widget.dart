@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../providers/cart.dart';
 import '../providers/product.dart';
-import '../providers/products.dart';
 import 'counter_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -13,18 +12,18 @@ class CartItemWidget extends StatelessWidget {
   final double price;
   int quantity;
 
-  CartItemWidget({
+  CartItemWidget({Key? key,
     required this.id,
     required this.image,
     required this.title,
     required this.price,
     required this.quantity,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(context);
-    final product = Provider.of<Product>(context);
+    // final cart = Provider.of<Cart>(context);
+    // final product = Provider.of<Product>(context);
     return Card(
       color: Colors.transparent,
       elevation: 0,
@@ -46,7 +45,7 @@ class CartItemWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
@@ -65,7 +64,7 @@ class CartItemWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
@@ -82,7 +81,7 @@ class CartItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          Divider(
+          const Divider(
             height: 40,
             thickness: 1,
             endIndent: 20,

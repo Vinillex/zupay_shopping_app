@@ -11,7 +11,7 @@ class PaymentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Card(
-      color: Color(0xFFFEFEFE),
+      color: const Color(0xFFFEFEFE),
       elevation: 0,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20,),
@@ -27,10 +27,10 @@ class PaymentWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            PaymentButton(),
+            const PaymentButton(),
           ],
         ),
       ),

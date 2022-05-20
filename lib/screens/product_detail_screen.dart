@@ -9,6 +9,8 @@ import '../widgets/counter_widget.dart';
 class ProductDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail-screen';
 
+  const ProductDetailScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final productId = ModalRoute.of(context)?.settings.arguments as String;
@@ -17,20 +19,20 @@ class ProductDetailScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     Widget _ratingWidget() {
       if (selectedProduct.rate < 5 / 3) {
-        return Icon(
+        return const Icon(
           Icons.star_border,
           color: Colors.orange,
           size: 3,
         );
       }
       if (selectedProduct.rate < 10 / 3) {
-        return Icon(
+        return const Icon(
           Icons.star_half_outlined,
           color: Colors.orange,
           size: 30,
         );
       } else {
-        return Icon(
+        return const Icon(
           Icons.star,
           color: Colors.orange,
           size: 30,
@@ -42,27 +44,27 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _ratingWidget(),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
                 selectedProduct.rate.toString(),
                 style: Theme.of(context).textTheme.subtitle2,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
                 'by ${selectedProduct.count} customers',
                 style: Theme.of(context).textTheme.caption,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
             ],
@@ -82,7 +84,7 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +109,7 @@ class ProductDetailScreen extends StatelessWidget {
                                 ),
                                 height: 80,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Text(
@@ -117,7 +119,7 @@ class ProductDetailScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Flexible(
@@ -133,7 +135,7 @@ class ProductDetailScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     height: 40,
                     thickness: 2,
                   ),
@@ -141,7 +143,7 @@ class ProductDetailScreen extends StatelessWidget {
                     'Category : ${selectedProduct.category}',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(

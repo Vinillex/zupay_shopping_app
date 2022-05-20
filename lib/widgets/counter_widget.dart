@@ -10,7 +10,7 @@ class CounterWidget extends StatelessWidget {
   final String title;
   final String image;
 
-  CounterWidget(
+  const CounterWidget(
       {required this.productId,
       this.quantity,
       required this.price,
@@ -46,10 +46,10 @@ class CounterWidget extends StatelessWidget {
                       cart.addCartItem(productId, price, title, image);
                     },
                     child: Container(
-                      child: Center(child: Text('ADD')),
+                      child: const Center(child: Text('ADD')),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color(0xFFAFBEC4).withOpacity(0.5),
+                          color: const Color(0xFFAFBEC4).withOpacity(0.5),
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(5),
@@ -61,10 +61,10 @@ class CounterWidget extends StatelessWidget {
                     children: [
                       GestureDetector(
                         child: Container(
-                          child: Icon(Icons.remove),
+                          child: const Icon(Icons.remove),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Color(0xFFAFBEC4).withOpacity(0.5),
+                              color: const Color(0xFFAFBEC4).withOpacity(0.5),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(5),
@@ -79,12 +79,12 @@ class CounterWidget extends StatelessWidget {
                       ),
                       GestureDetector(
                         child: Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                           ),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Color(0xFFAFBEC4).withOpacity(0.5),
+                              color: const Color(0xFFAFBEC4).withOpacity(0.5),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(5),
