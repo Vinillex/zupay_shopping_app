@@ -20,7 +20,7 @@ class ProductWidget extends StatelessWidget {
     final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context,listen: false);
     return Container(
-      color: Color(0xFFFFFFFF),
+      color: const Color(0xFFFFFFFF),
       child: Column(
         children: [
           Flexible(

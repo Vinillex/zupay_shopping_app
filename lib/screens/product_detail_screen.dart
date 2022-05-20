@@ -19,20 +19,20 @@ class ProductDetailScreen extends StatelessWidget {
       if (selectedProduct.rate < 5 / 3) {
         return Icon(
           Icons.star_border,
-          color: Colors.amber,
-          size: 30,
+          color: Colors.orange,
+          size: 3,
         );
       }
       if (selectedProduct.rate < 10 / 3) {
         return Icon(
           Icons.star_half_outlined,
-          color: Colors.amber,
+          color: Colors.orange,
           size: 30,
         );
       } else {
         return Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.orange,
           size: 30,
         );
       }
@@ -53,19 +53,14 @@ class ProductDetailScreen extends StatelessWidget {
               ),
               Text(
                 selectedProduct.rate.toString(),
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).textTheme.subtitle2,
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
-                'By ${selectedProduct.count} customers',
-                textScaleFactor: 0.9,
-                style: TextStyle(
-                  color: Colors.grey[700],
-                ),
+                'by ${selectedProduct.count} customers',
+                style: Theme.of(context).textTheme.caption,
               ),
               SizedBox(
                 width: 20,
@@ -105,7 +100,7 @@ class ProductDetailScreen extends StatelessWidget {
                               SizedBox(
                                 child: Text(
                                   selectedProduct.title,
-                                  textScaleFactor: 1.2,
+                                  style: Theme.of(context).textTheme.headline4,
                                   maxLines: 5,
                                   overflow: TextOverflow.ellipsis,
                                   softWrap: false,
@@ -117,7 +112,7 @@ class ProductDetailScreen extends StatelessWidget {
                               ),
                               Text(
                                 '\$${selectedProduct.price}',
-                                textScaleFactor: 1.2,
+                                style: Theme.of(context).textTheme.headline5,
                               ),
                             ],
                           ),
@@ -144,13 +139,14 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                   Text(
                     'Category : ${selectedProduct.category}',
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
                     selectedProduct.description,
-                    textScaleFactor: 1.2,
+                    style: Theme.of(context).textTheme.bodyText1,
                     maxLines: 15,
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,

@@ -28,12 +28,12 @@ class CounterWidget extends StatelessWidget {
           child: (quantity == null)
               ? Text(
                   '',
-                  textScaleFactor: 1.5,
+                 style: Theme.of(context).textTheme.headline6,
                 )
               : FittedBox(
                   child: Text(
                     '\$${(quantity! * price).toStringAsFixed(2)}',
-                    textScaleFactor: 1.5,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
         ),
@@ -75,7 +75,7 @@ class CounterWidget extends StatelessWidget {
                         },
                       ),
                       FittedBox(
-                        child: Text('$quantity'),
+                        child: Text('$quantity',style: Theme.of(context).textTheme.headline2,),
                       ),
                       GestureDetector(
                         child: Container(

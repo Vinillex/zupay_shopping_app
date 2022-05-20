@@ -57,10 +57,11 @@ class CartItemWidget extends StatelessWidget {
                       children: [
                         Text(
                           title,
+                          style: Theme.of(context).textTheme.bodyText2,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        Text('\$$price'),
+                        Text('\$$price',style: Theme.of(context).textTheme.headline3,),
                       ],
                     ),
                   ),

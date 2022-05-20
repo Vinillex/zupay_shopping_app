@@ -20,10 +20,10 @@ class PaymentWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Total',textScaleFactor: 1.5,),
+                Text('Total',style: Theme.of(context).textTheme.headlineLarge,),
                 Text(
                   '\$' + cart.totalAmount.toStringAsFixed(2),
-                  textScaleFactor: 1.5,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ],
             ),
