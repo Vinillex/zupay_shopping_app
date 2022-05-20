@@ -16,15 +16,16 @@ class Products with ChangeNotifier{
   }
   
   Future<void> fetchAndSetData() async{
-    final url = Uri.parse('https://fakestoreapi.com/products');
-    //try{
+    final url = Uri.parse('https://fakestoreapi.com/prducts');
+    try {
       // final response = fetch('https://fakestoreapi.com/products')
       //     .then(res=>res.json())
       //   .then(json=>console.log(json))
       final response = await http.get(url);
-      final extractedData = json.decode(response.body) as List<dynamic>;//Map<String, dynamic>;
+      final extractedData = json.decode(response.body) as List<
+          dynamic>; //Map<String, dynamic>;
       print(extractedData);
-      if(extractedData == null){
+      if (extractedData == null) {
         return;
       }
       final List<Product> loadedProduct = [];
@@ -33,19 +34,22 @@ class Products with ChangeNotifier{
         // print(prodData['id'].runtimeType);
         loadedProduct.add(
           Product(
-            id: prodData['id'].toString(),
-            title: prodData['title'],
-            price: double.parse(prodData['price'].toString()),
-            category: prodData['category'],
-            description: prodData['description'],
-            image: prodData['image'],
-            rate: double.parse(prodData['rating']['rate'].toString()),
-            count: prodData['rating']['count']
+              id: prodData['id'].toString(),
+              title: prodData['title'],
+              price: double.parse(prodData['price'].toString()),
+              category: prodData['category'],
+              description: prodData['description'],
+              image: prodData['image'],
+              rate: double.parse(prodData['rating']['rate'].toString()),
+              count: prodData['rating']['count']
           ),
         );
       });
       _products = loadedProduct;
       notifyListeners();
-    //
+    }catch(error){
+      print(error);
+      throw error;
+    }
   }
 }

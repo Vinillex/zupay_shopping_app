@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/products.dart';
@@ -17,16 +20,21 @@ class _ProductScreenState extends State<ProductScreen> {
   var _isLoading = false;
 
   @override
-  void didChangeDependencies() {
+  Future<void> didChangeDependencies() async{
     if (_isInit) {
       setState(() {
         _isLoading = true;
       });
-      Provider.of<Products>(context).fetchAndSetData().then((_) {
-        setState(() {
-          _isLoading = false;
-        });
-      });
+      try{
+        await Provider.of<Products>(context).fetchAndSetData();
+          setState(() {
+            _isLoading = false;
+          });
+      }catch(error){
+        //print('error');
+        _showErrorDialog('Oops !!! Something went wrong');
+      }
+
     }
     _isInit = false;
     super.didChangeDependencies();
@@ -35,6 +43,34 @@ class _ProductScreenState extends State<ProductScreen> {
   // Future<void> _refreshScreen(BuildContext context) async {
   //   await Provider.of<Products>(context, listen: false).fetchAndSetData();
   // }
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Error Occurred'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.cancel, color: Colors.red, size: 100,),
+            Text(message,style: Theme.of(context).textTheme.headline3,),
+            const SizedBox(
+              height: 20,
+            ),
+            Text('Try again later',style: Theme.of(context).textTheme.headline2,)
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+              Timer(const Duration(milliseconds: 500), ()=> SystemNavigator.pop());
+            },
+            child: Text('Okay', style: Theme.of(context).textTheme.button,),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
